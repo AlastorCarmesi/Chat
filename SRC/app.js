@@ -5,7 +5,8 @@ const http = require('http');
 const server = http.createServer(app);
 
 app.get('/',(req,res)=>{
-    res.send('<h1>Hola mundo</h1>')
+    res.sendFile(`${__dirname}/Index.html`)
+    
 });
 
 server.listen(3000, ()=>{
