@@ -8,16 +8,21 @@ const {Server} = require('socket.io');
 const io = new Server(server);
 
 io.on('connection', (socket)=>{
-    //console.log('Un usuario se ha conectado')
+    
 
-    //socket.on('chat', (msg)=>{console.log('Mensaje: '+msg)})
-
+    //Nos permite ver los mensajes de los usuarios en la interfaz
     socket.on('chat', (msg) =>{
         io.emit('chat', msg)
     })
 
+    //Aqui veremos que se envian mediante la consola
+    socket.on('chat', (msg)=>{
+        console.log('Mensaje: '+msg)
+    })
+
 });
 
+//esta funcion nos permitira ver la conexion y desconexion de un usuario y enviara a la consola
 io.on('connection', function(socket){
     console.log('Alguien se ha Conectado')
 
