@@ -18,6 +18,14 @@ io.on('connection', (socket)=>{
 
 });
 
+io.on('connection', function(socket){
+    console.log('Alguien se ha Conectado')
+
+    socket.on('disconnect', function() {
+        console.log('Alguien se ha desconectado')
+    });
+});
+
 app.get('/',(req,res)=>{
     res.sendFile(`${__dirname}/Index.html`)
     
