@@ -16,19 +16,17 @@ io.on('connection', (socket)=>{
     })
 
     //Aqui veremos que se envian mediante la consola
-    socket.on('chat', (msg)=>{
-        console.log('Mensaje: '+msg)
-    })
+    //socket.on('chat', (msg)=>{console.log('Mensaje: '+msg)})
 
 });
 
 //esta funcion nos permitira ver la conexion y desconexion de un usuario y enviara a la consola
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
     console.log('Alguien se ha Conectado')
 
     socket.on('disconnect', function() {
         console.log('Alguien se ha desconectado')
-    });
+    })
 });
 
 app.get('/',(req,res)=>{
